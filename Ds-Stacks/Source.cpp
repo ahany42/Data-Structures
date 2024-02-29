@@ -1,6 +1,6 @@
 #include <iostream>
 #include "StackImplementation.h"
-
+#include "QueueImplementation.cpp"
 using namespace std;
 
 int main()
@@ -17,6 +17,16 @@ int main()
 	{
 		cout << "top= " << S.StackTop() << endl;
 		S.StackPop();
+	}
+	QueueImplementation <int> q;
+	q.enqueue(1);
+	q.enqueue(2);
+	q.enqueue(3);
+	q.enqueue(4);
+	q.enqueue(5);
+	while (!q.empty()) {
+		cout << q.Queuefront() << endl;
+		q.dequeue();
 	}
 
 	return 0;

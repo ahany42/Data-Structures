@@ -21,9 +21,15 @@
     <ClCompile Include="StackImplementation.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="QueueImplementation.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="StackImplementation.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="QueueImplementation.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
