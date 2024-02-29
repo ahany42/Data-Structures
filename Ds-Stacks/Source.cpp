@@ -12,20 +12,22 @@ int main()
 	S.StackPush('d');
 	S.StackPush('e');
 	S.StackPush('f');
-	cout << "Size"<<S.StackSize()<<endl;
 	while (!S.empty())
 	{
 		cout << "top= " << S.StackTop() << endl;
 		S.StackPop();
 	}
-	QueueImplementation <int> q;
+	cout << "here1" << endl;
+	QueueImplementation<int> q;
+	cout << "here2" << endl;
 	q.enqueue(1);
+	cout << "here3" << endl;
 	q.enqueue(2);
 	q.enqueue(3);
 	q.enqueue(4);
-	q.enqueue(5);
+	cout << "here" << endl;
 	while (!q.empty()) {
-		cout << q.Queuefront() << endl;
+		cout << q.Front() << endl;
 		q.dequeue();
 	}
 

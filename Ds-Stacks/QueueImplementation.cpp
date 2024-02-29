@@ -1,49 +1,67 @@
-#include "QueueImplementation.h"
-#include <assert.h>
-template <class T>
-QueueImplementation<T>::QueueImplementation() {
-	size = 5, count = 0, front = -1, back = -1;
-	T* arr = new T[size];
 
-}
+#include "QueueImplementation.h"
+#include <iostream>
+#include <assert.h>
+
 template <class T>
-int QueueImplementation<T>::length() {
+QueueImplementation<T>::QueueImplementation()
+{
+	size = 5;
+	count = 0;
+	front = back = -1;
+	arr = new T[size];
+}
+
+template <class T>
+int QueueImplementation<T>::length()
+{
 	return count;
 }
+
 template <class T>
-void QueueImplementation<T>::enqueue(T value) {
+void QueueImplementation<T>::enqueue(T val)
+{
 	assert(!full());
 	if (count == 0)
 		front = 0;
-	arr[count] = value;
-	count++;
 	back = (back + 1) % size;
+	arr[back] = val;
+	count++;
 }
+
 template <class T>
-void QueueImplementation<T>::dequeue() {
+void QueueImplementation<T>::dequeue()
+{
 	assert(!empty());
-	if (count == 1) {
+	if (count == 1)
 		front = back = -1;
-	}
-	else {
+	else
 		front = (front + 1) % size;
-	}
 	count--;
 }
+
 template <class T>
-T QueueImplementation<T>::Queuefront() {
+T QueueImplementation<T>::Front()
+{
 	assert(!empty());
 	return arr[front];
 }
+
 template <class T>
-bool QueueImplementation<T>::empty() {
-	return(count == 0);
+bool QueueImplementation<T>::full()
+{
+	return (count == size);
 }
+
 template <class T>
-bool QueueImplementation<T>::full() {
-	return(count == size);
+bool QueueImplementation<T>::empty()
+{
+	return (count == 0);
 }
+
+
 template <class T>
-QueueImplementation<T>::~QueueImplementation() {
+QueueImplementation<T>::~QueueImplementation(void)
+{
 	delete[] arr;
 }
