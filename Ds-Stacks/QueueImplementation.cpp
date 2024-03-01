@@ -60,6 +60,7 @@ bool QueueImplementation<T>::empty()
 }
 
 
+
 template <class T>
 QueueImplementation<T>::~QueueImplementation(void)
 {

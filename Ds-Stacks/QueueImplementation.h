@@ -1,23 +1,5 @@
 
-/*#pragma once
-template <class T>
-class QueueImplementation
-{
-	int size, count, front, back;
-	T* arr;
-public:
-	QueueImplementation(void);
-	T Queuefront();
-	int length();
-	bool empty();
-	bool full();
-	void enqueue(T);
-	void dequeue();
-	~QueueImplementation(void);
-};*/
 #pragma once
-//#include "QueueArr.cpp"
-
 template <class T>
 class QueueImplementation
 {
@@ -32,6 +14,7 @@ public:
 	T Front();
 	bool empty();
 	bool full();
+	static bool iseqaul(QueueImplementation , QueueImplementation);
 	~QueueImplementation();
 };
 
