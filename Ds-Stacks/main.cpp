@@ -1,7 +1,6 @@
 #include <iostream>
-#include "StackImplementation.h"
+#include "StackImplementation.cpp"
 #include "QueueImplementation.cpp"
-#include "QueueImplementation.h"
 #include <queue>
 using namespace std;
 
@@ -29,7 +28,7 @@ int main()
 	queue <int> q2;
 	q1.push(1);
 	q2.push(1);
-	StackImplementation S;
+	StackImplementation<char> S;
 	S.StackPush('a');
 	S.StackPush('b');
 	S.StackPush('c');

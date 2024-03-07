@@ -1,4 +1,5 @@
 #pragma once
+template <class T>
 class StackImplementation
 {
 	int size;
@@ -7,9 +8,9 @@ class StackImplementation
 public:
 	StackImplementation();
 	int StackSize();
-	void StackPush(char a);
+	void StackPush(T);
 	void StackPop();
-	char StackTop();
+	T StackTop();
 	bool empty();
 	void ExpandStack();
 	~StackImplementation(void);

@@ -1,33 +1,38 @@
 #include "StackImplementation.h"
 #include <assert.h>
-
-StackImplementation::StackImplementation(void)
+template <class T>
+StackImplementation<T>::StackImplementation(void)
 {
 	size= 10;
 	count = 0;
 	arr = new char[size];
 }
-
-int StackImplementation::StackSize() {
+template <class T>
+int StackImplementation<T>::StackSize() {
 	return count;
 }
-void StackImplementation::StackPush(char a) {
+template <class T>
+void StackImplementation<T>::StackPush(T value) {
 	if (size == count)
 		ExpandStack();
-	arr[count] = a;
+	arr[count] = value;
 	count++;
 }
-void StackImplementation::StackPop() {
+template <class T>
+void StackImplementation<T>::StackPop() {
 	count--;
 }
-bool StackImplementation::empty() {
+template <class T>
+bool StackImplementation<T>::empty() {
 	return (count == 0);
 }
-char StackImplementation::StackTop() {
+template <class T>
+T StackImplementation<T>::StackTop() {
 	assert(!empty());
 	return arr [count-1];
 }
-void StackImplementation::ExpandStack() {
+template <class T>
+void StackImplementation<T>::ExpandStack() {
 	size += 5;
 	char* temp = new char[size];
 	for (int i = 0; i < count; i++) {
@@ -37,7 +42,8 @@ void StackImplementation::ExpandStack() {
 	arr = temp;
 	
 }
-StackImplementation::~StackImplementation(void)
+template <class T>
+StackImplementation<T>::~StackImplementation(void)
 {
 	delete[] arr;
 }
