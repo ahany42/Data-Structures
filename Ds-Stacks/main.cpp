@@ -1,6 +1,7 @@
 #include <iostream>
 #include "StackImplementation.cpp"
 #include "QueueImplementation.cpp"
+#include "ArrayListImplementation.cpp"
 #include <queue>
 using namespace std;
 
@@ -35,24 +36,37 @@ int main()
 	S.StackPush('d');
 	S.StackPush('e');
 	S.StackPush('f');
-	while (!S.empty())
+	ArrayListImplementation <int> arr;
+	arr.Append(1);
+	arr.Append(2);
+	arr.Append(4);
+	arr.InsertAt(2, 3);
+	arr.Append(5);
+	arr.DeleteAt(4);
+	cout<<"second element in array "<<arr.At(1)<<endl;
+	cout << "arr size "<<arr.Length() << endl;
+	while (arr.Length() > 0) {
+		cout << "Array List Element "<<arr.Length()<<" = "<<arr.At(arr.Length() - 1) << endl;
+		arr.DeleteAt(arr.Length() - 1);
+	}
+		while (!S.empty())
 	{
-		cout << "top= " << S.StackTop() << endl;
+		cout << "stack top= " << S.StackTop() << endl;
 		S.StackPop();
 	}
-	cout << "here1" << endl;
 	QueueImplementation<int> q;
-	cout << "here2" << endl;
 	q.enqueue(1);
-	cout << "here3" << endl;
 	q.enqueue(2);
 	q.enqueue(3);
 	q.enqueue(4);
-	cout << "here" << endl;
 	while (!q.empty()) {
-		cout << q.Front() << endl;
+		cout <<"Queue Front "<< q.Front() << endl;
 		q.dequeue();
 	}
-	cout << isequalQueue(q1, q2);
+	if (isequalQueue(q1, q2))
+		cout << "Queues Are Identical" << endl;
+	else
+		cout << "Queues Are Not Identical" << endl;
+	
 	return 0;
 }

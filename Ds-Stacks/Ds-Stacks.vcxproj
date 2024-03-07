@@ -127,11 +127,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="ArrayListImplementation.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="QueueImplementation.cpp" />
     <ClCompile Include="StackImplementation.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="ArrayListImplementation.h" />
     <ClInclude Include="QueueImplementation.h" />
     <ClInclude Include="StackImplementation.h" />
   </ItemGroup>

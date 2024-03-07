@@ -24,12 +24,18 @@
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="ArrayListImplementation.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="StackImplementation.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="QueueImplementation.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ArrayListImplementation.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
