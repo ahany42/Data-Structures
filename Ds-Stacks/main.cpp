@@ -1,11 +1,13 @@
 #include <iostream>
-#include "StackImplementation.cpp"
+#include<string>
+#include "StackImplementation.h"
 #include "QueueImplementation.cpp"
-#include "ArrayListImplementation.cpp"
+#include "QueueImplementation.h"
 #include <queue>
+#include <stack>
 using namespace std;
 
-bool isequalQueue(queue <int> q1, queue <int> q2) {
+bool isEqualQueue(queue <int> q1, queue <int> q2) {
 	if (q1.size() == q2.size()) {
 		while (!q1.empty()) {
 			if (q1.front() == q2.front()) {
@@ -23,50 +25,58 @@ bool isequalQueue(queue <int> q1, queue <int> q2) {
 	else
 		return false;
 }
+bool BracketsBalanced(string s, stack <char> st) {
+	for (int i = 0; i < s.length(); i++) {
+		if (s[i] == ')' && !st.empty(); i++) {
+			st.pop();
+		}
+		else if (s[i] == '(') {
+			s.push_back(s[i]);
+		}
+		else {
+			return false;
+		}
+		if (i == s.length())
+			return true;
+	}
+}
 int main()
 {
 	queue <int> q1;
 	queue <int> q2;
 	q1.push(1);
 	q2.push(1);
-	StackImplementation<char> S;
+	StackImplementation S;
 	S.StackPush('a');
 	S.StackPush('b');
 	S.StackPush('c');
 	S.StackPush('d');
 	S.StackPush('e');
 	S.StackPush('f');
-	ArrayListImplementation <int> arr;
-	arr.Append(1);
-	arr.Append(2);
-	arr.Append(4);
-	arr.InsertAt(2, 3);
-	arr.Append(5);
-	arr.DeleteAt(4);
-	cout<<"second element in array "<<arr.At(1)<<endl;
-	cout << "arr size "<<arr.Length() << endl;
-	while (arr.Length() > 0) {
-		cout << "Array List Element "<<arr.Length()<<" = "<<arr.At(arr.Length() - 1) << endl;
-		arr.DeleteAt(arr.Length() - 1);
-	}
-		while (!S.empty())
+	while (!S.empty())
 	{
-		cout << "stack top= " << S.StackTop() << endl;
+		cout << "top= " << S.StackTop() << endl;
 		S.StackPop();
 	}
+	cout << "here1" << endl;
 	QueueImplementation<int> q;
+	cout << "here2" << endl;
 	q.enqueue(1);
+	cout << "here3" << endl;
 	q.enqueue(2);
 	q.enqueue(3);
 	q.enqueue(4);
+	cout << "here" << endl;
 	while (!q.empty()) {
-		cout <<"Queue Front "<< q.Front() << endl;
+		cout << q.Front() << endl;
 		q.dequeue();
 	}
-	if (isequalQueue(q1, q2))
-		cout << "Queues Are Identical" << endl;
-	else
-		cout << "Queues Are Not Identical" << endl;
-	
+	cout << isEqualQueue(q1, q2);
+	string s;
+	stack <char> st;
+	cin >> s;
+	if (BracketsBalanced(s, st))
+		cout << "Balanced" << endl;
+	else cout << "Not Balanced" << endl;
 	return 0;
 }
