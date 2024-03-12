@@ -25,21 +25,20 @@ bool isEqualQueue(queue <int> q1, queue <int> q2) {
 	else
 		return false;
 }
-bool BracketsBalanced(string s, stack <char> st) {
+void BalancedBrackets(string s,stack <char> &st){
 	for (int i = 0; i < s.length(); i++) {
-		if (s[i] == ')' && !st.empty(); i++) {
+		if (s[i] == ')' && !st.empty() && st.top()=='(') {
 			st.pop();
 		}
 		else if (s[i] == '(') {
-			s.push_back(s[i]);
+			st.push(s[i]);
 		}
 		else {
-			return false;
+			st.push('!');
 		}
-		if (i == s.length())
-			return true;
 	}
 }
+
 int main()
 {
 	queue <int> q1;
@@ -75,8 +74,10 @@ int main()
 	string s;
 	stack <char> st;
 	cin >> s;
-	if (BracketsBalanced(s, st))
-		cout << "Balanced" << endl;
-	else cout << "Not Balanced" << endl;
+		BalancedBrackets(s,st);
+	if(st.empty())
+	cout<<"Balanced"<<endl;
+	else
+	cout<<"Not Balanced"<<endl;
 	return 0;
 }
