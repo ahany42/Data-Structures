@@ -2,6 +2,7 @@
 #include<string>
 #include "StackImplementation.cpp"
 #include "QueueImplementation.cpp"
+#include "LinkedListImplementation.cpp"
 #include <queue>
 #include <stack>
 using namespace std;
@@ -40,44 +41,86 @@ void BalancedBrackets(string s,stack <char> &st){
 
 int main()
 {
-	queue <int> q1;
-	queue <int> q2;
-	q1.push(1);
-	q2.push(1);
-	StackImplementation <char> S;
-	S.StackPush('a');
-	S.StackPush('b');
-	S.StackPush('c');
-	S.StackPush('d');
-	S.StackPush('e');
-	S.StackPush('f');
-	while (!S.empty())
-	{
-		cout << "top= " << S.StackTop() << endl;
-		S.StackPop();
-	}
+	int choice;
+	do {
+		cout << "---------------------" << endl;
+		cout << "Enter 1 For Stacks" << endl;
+		cout << "Enter 2 For Queues" << endl;
+		cout << "Enter 3 For Queues Comparison" << endl;
+		cout << "Enter 4 For Balanced Brackets" << endl;
+		cout << "Enter 5 For Linked Lists" << endl;
+		cout << "Enter 6 to Exit" << endl;
+		cin >> choice;
+		if (choice == 1) {
+			StackImplementation <char> S;
+			S.StackPush('a');
+			S.StackPush('b');
+			S.StackPush('c');
+			S.StackPush('d');
+			S.StackPush('e');
+			S.StackPush('f');
+			while (!S.empty())
+			{
+				cout << "top= " << S.StackTop() << endl;
+				S.StackPop();
+			}
+		}
+		else if (choice == 2) {
+			QueueImplementation<int> q;
+			q.enqueue(1);
+			q.enqueue(2);
+			q.enqueue(3);
+			q.enqueue(4);
+			while (!q.empty()) {
+				cout << q.Front() << endl;
+				q.dequeue();
+			}
+		}
+		else if (choice == 3) {
+			queue <int> q1;
+			queue <int> q2;
+			char ch;
+			int num;
+			cout << "Enter Integers for Queues Comparisons" << endl;
+			cout << "Enter N when you complete the input of queue 1" << endl;
+			cin >> ch;
+			while (ch != 'N' || ch != 'n') {
+				cin >> num;
+				q1.push(num);
+			}
+			cout << "Enter N when you complete the input of queue " << endl;
+			cin >> ch;
+			while (ch != 'N' || ch != 'n') {
+				cin >> num;
+				q2.push(num);
+			}
+			if (isEqualQueue(q1, q2))
+				cout << "Identical Queues" << endl;
+			else
+				cout << "Queues Not Identical" << endl;
+		}
+		else if (choice == 4) {
+			string str;
+			stack <char> st;
+			cout << "Enter a String of braces to test" << endl;
+			cin >> str;
+			BalancedBrackets(str, st);
+			if (st.empty())
+				cout << "Balanced" << endl;
+			else
+				cout << "Not Balanced" << endl;
+		}
+		else if (choice == 5) {
+			LinkedListImplementation <int> L;
+			L.Append(9);
+			L.Append(10);
+			L.Append(11);
+			L.InsertAt(1, 100);
+			L.DeleteAt(3);
 
-	QueueImplementation<int> q;
-	q.enqueue(1);
-	q.enqueue(2);
-	q.enqueue(3);
-	q.enqueue(4);
-	while (!q.empty()) {
-		cout << q.Front() << endl;
-		q.dequeue();
-	}
-	if (isEqualQueue(q1, q2))
-		cout << "Identical Queues" << endl;
-	else
-		cout << "Queues Not Identical" << endl;
-	string str;
-	stack <char> st;
-	cout << "Enter a String of braces to test" << endl;
-	cin >> str;
-		BalancedBrackets(str,st);
-	if(st.empty())
-	cout<<"Balanced"<<endl;
-	else
-	cout<<"Not Balanced"<<endl;
+			for (int i = 0; i < L.Length(); i++)
+				cout << "Element of index " << i + 1 << "is " << L.At(i) << endl;
+		}
+	}while (choice != 6);
 	return 0;
 }
