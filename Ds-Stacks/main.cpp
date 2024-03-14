@@ -1,8 +1,7 @@
 #include <iostream>
 #include<string>
-#include "StackImplementation.h"
+#include "StackImplementation.cpp"
 #include "QueueImplementation.cpp"
-#include "QueueImplementation.h"
 #include <queue>
 #include <stack>
 using namespace std;
@@ -45,7 +44,7 @@ int main()
 	queue <int> q2;
 	q1.push(1);
 	q2.push(1);
-	StackImplementation S;
+	StackImplementation <char> S;
 	S.StackPush('a');
 	S.StackPush('b');
 	S.StackPush('c');
@@ -57,24 +56,25 @@ int main()
 		cout << "top= " << S.StackTop() << endl;
 		S.StackPop();
 	}
-	cout << "here1" << endl;
+
 	QueueImplementation<int> q;
-	cout << "here2" << endl;
 	q.enqueue(1);
-	cout << "here3" << endl;
 	q.enqueue(2);
 	q.enqueue(3);
 	q.enqueue(4);
-	cout << "here" << endl;
 	while (!q.empty()) {
 		cout << q.Front() << endl;
 		q.dequeue();
 	}
-	cout << isEqualQueue(q1, q2);
-	string s;
+	if (isEqualQueue(q1, q2))
+		cout << "Identical Queues" << endl;
+	else
+		cout << "Queues Not Identical" << endl;
+	string str;
 	stack <char> st;
-	cin >> s;
-		BalancedBrackets(s,st);
+	cout << "Enter a String of braces to test" << endl;
+	cin >> str;
+		BalancedBrackets(str,st);
 	if(st.empty())
 	cout<<"Balanced"<<endl;
 	else
