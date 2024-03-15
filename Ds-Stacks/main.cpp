@@ -52,8 +52,8 @@ int main()
 		cout << "Enter 6 to Exit" << endl;
 		cin >> choice;
 		if (choice == 1) {
-			stack <char> S;
-			stack <char> S2;
+			StackImplementation <char> S;
+			StackImplementation <char> S2;
 			int choice2;
 			char ch;
 			cout << "To Add Element in Stack Enter 1" << endl;
@@ -66,7 +66,7 @@ int main()
 				if (choice2 == 1) {
 					cout << "Enter Char to Stack" << endl;
 						cin >> ch;
-						S.push(ch);
+						S.StackPush(ch);
 						cout << "Element Added successfully" << endl;
 					
 				}	
@@ -74,8 +74,8 @@ int main()
 					S2 = S;
 					while (!S2.empty())
 					{
-						cout << "top= " << S2.top() << endl;
-						S2.pop();
+						cout << "top= " << S2.StackTop() << endl;
+						S2.StackPop();
 					}
 				
 				}
@@ -85,7 +85,7 @@ int main()
 						
 					}
 					else {
-						S.pop();
+						S.StackPop();
 						cout << "Removed successfully" << endl;
 						
 					}
