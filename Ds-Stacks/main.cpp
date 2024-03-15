@@ -56,55 +56,113 @@ int main()
 			StackImplementation <char> S2;
 			int choice2;
 			char ch;
-			cout << "To Add Element in Stack Enter 1" << endl;
-			cout << "To Display Elements in Stack Enter 2" << endl;
-			cout << "To Remove the top Element from Stack Enter 3" << endl;
-			cout << "Enter 0 to Return to Main Menu" << endl;
+			
 		
 			do {
+				cout << "To Add Element in Stack Enter 1" << endl;
+				cout << "To Display Elements in Stack Enter 2" << endl;
+				cout << "To Remove the top Element from Stack Enter 3" << endl;
+				cout << "Enter 7 To Return to Main Menu" << endl;
 				cin >> choice2;
 				if (choice2 == 1) {
 					cout << "Enter Char to Stack" << endl;
 						cin >> ch;
 						S.StackPush(ch);
 						cout << "Element Added successfully" << endl;
+						cout << "---------------------" << endl;
 					
 				}	
 				else if (choice2 == 2) {
-					S2 = S;
-					while (!S2.empty())
-					{
-						cout << "top= " << S2.StackTop() << endl;
-						S2.StackPop();
+					if (S.empty()) {
+						cout << "Empty Stack" << endl;
 					}
+					else {
+						S2 = S;
+						int i = 0;
+						while (!S2.empty())
+						{
+							cout << "Element " << i + 1 << " in Stack= " << S2.StackTop() << endl;
+							S2.StackPop();
+
+						}
+					}
+					
+					cout << "---------------------" << endl;
 				
 				}
 				else if (choice2 == 3) {
+					
 					if (S.empty()) {
 						cout << "Empty Stack" << endl;
+						cout << "---------------------" << endl;
 						
 					}
 					else {
 						S.StackPop();
 						cout << "Removed successfully" << endl;
+
 						
 					}
 				
 				
 				}
+				else {
+					break;
+				}
 				
-			} while (choice2 != 0);
+			} while (choice2 != 7);
 		}
 		else if (choice == 2) {
-			QueueImplementation<int> q;
-			q.enqueue(1);
-			q.enqueue(2);
-			q.enqueue(3);
-			q.enqueue(4);
-			while (!q.empty()) {
-				cout << q.Front() << endl;
-				q.dequeue();
-			}
+			QueueImplementation<char> q;
+			QueueImplementation<char> q2;
+			int choice2;
+			do {
+				cout << "To Add Element to Queue Enter 1" << endl;
+				cout << "To Display Elements in Queue Enter 2" << endl;
+				cout << "To Remove Element from Queue Enter 3" << endl;
+				cout << "Enter 7 To Return to Main Menu" << endl;
+				cin >> choice2;
+				if (choice2 == 1) {
+					char ch;
+					cout << "Enter Char to Queue" << endl;
+					cin >> ch;
+					q.enqueue(ch);
+				}
+				else if (choice2 == 2) {
+					if (q.empty()) {
+						cout << "Empty Queue" << endl;
+					}
+					else {
+						q2 = q;
+						int i = 0;
+						while (!q2.empty()) {
+							cout << "Element " << i + 1 << " in Queue = " << q2.Front() << endl;
+							q2.dequeue();
+							i++;
+						}
+					}
+					cout << "---------------------" << endl;
+				}
+				else if (choice2 == 3) {
+					if (q.empty()) {
+						cout << "Empty Queue" << endl;
+						cout << "---------------------" << endl;
+					}
+					else {
+						q.dequeue();
+						cout << "Removed Successfully" << endl;
+						cout << "---------------------" << endl;
+					}
+					
+				}
+				else {
+					break;
+				}
+			} while (choice2 != 7);
+			
+			
+			
+			
 		}
 		else if (choice == 3) {
 			queue <int> q1;
@@ -151,6 +209,9 @@ int main()
 			for (int i = 0; i < L.Length(); i++)
 				cout << "Element of index " << i + 1 << "is " << L.At(i) << endl;
 		}
+		else {
+			break;
+			}
 	}while (choice != 6);
 	return 0;
 }
