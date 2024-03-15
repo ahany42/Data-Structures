@@ -52,18 +52,48 @@ int main()
 		cout << "Enter 6 to Exit" << endl;
 		cin >> choice;
 		if (choice == 1) {
-			StackImplementation <char> S;
-			S.StackPush('a');
-			S.StackPush('b');
-			S.StackPush('c');
-			S.StackPush('d');
-			S.StackPush('e');
-			S.StackPush('f');
-			while (!S.empty())
-			{
-				cout << "top= " << S.StackTop() << endl;
-				S.StackPop();
-			}
+			stack <char> S;
+			stack <char> S2;
+			int choice2;
+			char ch;
+			cout << "To Add Element in Stack Enter 1" << endl;
+			cout << "To Display Elements in Stack Enter 2" << endl;
+			cout << "To Remove the top Element from Stack Enter 3" << endl;
+			cout << "Enter 0 to Return to Main Menu" << endl;
+		
+			do {
+				cin >> choice2;
+				if (choice2 == 1) {
+					cout << "Enter Char to Stack" << endl;
+						cin >> ch;
+						S.push(ch);
+						cout << "Element Added successfully" << endl;
+					
+				}	
+				else if (choice2 == 2) {
+					S2 = S;
+					while (!S2.empty())
+					{
+						cout << "top= " << S2.top() << endl;
+						S2.pop();
+					}
+				
+				}
+				else if (choice2 == 3) {
+					if (S.empty()) {
+						cout << "Empty Stack" << endl;
+						
+					}
+					else {
+						S.pop();
+						cout << "Removed successfully" << endl;
+						
+					}
+				
+				
+				}
+				
+			} while (choice2 != 0);
 		}
 		else if (choice == 2) {
 			QueueImplementation<int> q;
