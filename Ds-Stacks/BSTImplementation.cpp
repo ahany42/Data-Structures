@@ -35,3 +35,34 @@ T BSTImplementation<T>::FindNode(T val) {
 	}
 	return tmp;
 }
+template <class T>
+void BSTImplementation<T>::Insert(T val) {
+	assert(!contains(val));
+	Node<T>* newnode = new Node<T>(val);
+	if (root == NULL) {
+		root = newnode;
+	}
+	else {
+		Node <T>* tmp = root;
+		while (true){
+			if (val > tmp->value) {
+				if (tmp->right == NULL) {
+					tmp->right = newnode;
+					break;
+				}
+				else {
+					tmp = tmp->right;
+				}
+			}
+			else {
+				if (tmp->left == NULL) {
+					tmp->left = val;
+					break;
+				}
+				else {
+					tmp = tmp->left;
+				}
+			}
+		}
+	}
+}

@@ -16,6 +16,12 @@ public:
 	BSTImplementation();
 	bool contains(T val);
 	T FindNode(T val);
+	void Insert(T val);
+	void Traverse(Order order);
+	void InOrder(Node<T>* node);
+	void PreOrder(Node<T>* node);
+	void PostOrder(Node<T>* node);
+	void DeleteBST(Node<T>* node);
 	~BSTImplementation();
 };
 
