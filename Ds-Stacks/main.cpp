@@ -7,6 +7,7 @@
 #include <stack>
 using namespace std;
 
+//Function to check if 2 Queues are identical
 bool isEqualQueue(queue <int> q1, queue <int> q2) {
 	if (q1.size() == q2.size()) {
 		while (!q1.empty()) {
@@ -25,6 +26,7 @@ bool isEqualQueue(queue <int> q1, queue <int> q2) {
 	else
 		return false;
 }
+//Function to check if the brackets are balanaced 
 void BalancedBrackets(string s,stack <char> &st){
 	for (int i = 0; i < s.length(); i++) {
 		if (s[i] == ')' && !st.empty() && st.top()=='(') {
@@ -37,6 +39,25 @@ void BalancedBrackets(string s,stack <char> &st){
 			st.push('!');
 		}
 	}
+}
+//Function to remove desired value on top of the stack
+template<class T>
+void MovetoTop(stack <T> &s,T value) {
+	stack<T> temp;
+	while (!s.empty()) {
+		if (s.top()!=value) {
+			temp.push(s.top());
+			s.pop();
+		}
+		else {
+			s.pop();
+		}
+	}
+	while (!temp.empty()) {
+		s.push(temp.top());
+		temp.pop();
+	}
+	s.push(value);
 }
 
 int main()
@@ -62,6 +83,7 @@ int main()
 				cout << "To Add Element in Stack Enter 1" << endl;
 				cout << "To Display Elements in Stack Enter 2" << endl;
 				cout << "To Remove the top Element from Stack Enter 3" << endl;
+				cout << "To Move Element to the top of Stack Enter 4" << endl;
 				cout << "Enter 7 To Return to Main Menu" << endl;
 				cin >> choice2;
 				if (choice2 == 1) {
@@ -73,12 +95,14 @@ int main()
 					
 				}	
 				else if (choice2 == 2) {
+					//Validation on empty Stack
 					if (S.empty()) {
 						cout << "Empty Stack" << endl;
 					}
 					else {
 						S2 = S;
 						int i = 0;
+						//Displaying Stack Elements
 						while (!S2.empty())
 						{
 							cout << "Element " << i + 1 << " in Stack= " << S2.StackTop() << endl;
@@ -97,6 +121,7 @@ int main()
 						cout << "---------------------" << endl;
 						
 					}
+					//Removing Element on top of the stack
 					else {
 						S.StackPop();
 						cout << "Removed successfully" << endl;
@@ -105,6 +130,22 @@ int main()
 					}
 				
 				
+				}
+				else if (choice2 == 4) {
+					stack <int> s;
+					stack <int> tmp;
+					s.push(1);
+					s.push(2);
+					s.push(3);
+					s.push(0);
+					//Move value 3 to the top of the stack
+					MovetoTop(s, 3);
+					tmp = s;
+					while (!tmp.empty()) {
+						cout << tmp.top()<<" ";
+						tmp.pop();
+					}
+					cout << endl;
 				}
 				else {
 					break;
@@ -122,6 +163,7 @@ int main()
 				cout << "To Remove Element from Queue Enter 3" << endl;
 				cout << "Enter 7 To Return to Main Menu" << endl;
 				cin >> choice2;
+				//Adding Elements to queue
 				if (choice2 == 1) {
 					char ch;
 					cout << "Enter Char to Queue" << endl;
@@ -132,6 +174,7 @@ int main()
 					if (q.empty()) {
 						cout << "Empty Queue" << endl;
 					}
+					//Displaying Elements in queue 
 					else {
 						q2 = q;
 						int i = 0;
@@ -148,6 +191,7 @@ int main()
 						cout << "Empty Queue" << endl;
 						cout << "---------------------" << endl;
 					}
+					//Removing the front element of the queue 
 					else {
 						q.dequeue();
 						cout << "Removed Successfully" << endl;
