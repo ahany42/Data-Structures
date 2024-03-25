@@ -5,6 +5,7 @@
 #include "LinkedListImplementation.cpp"
 #include <queue>
 #include <stack>
+#include <list>
 using namespace std;
 
 //Function to check if 2 Queues are identical
@@ -65,9 +66,15 @@ void MovetoTop(stack <T> &s,T value) {
 	}
 	s.push(value);
 }
-
+template<class T>
+void TruncateList(LinkedListImplementation <T> &l,int num) {
+	assert(num < l.Length());
+	for (int i = l.Length(); i < num; i--)
+		l.DeleteAt(i);
+}
 int main()
 {
+	
 	int choice;
 	do {
 		cout << "---------------------" << endl;
@@ -76,7 +83,8 @@ int main()
 		cout << "Enter 3 For Queues Comparison" << endl;
 		cout << "Enter 4 For Balanced Brackets" << endl;
 		cout << "Enter 5 For Linked Lists" << endl;
-		cout << "Enter 6 to Exit" << endl;
+		cout << "Enter 6 to Truncate List " << endl;
+		cout << "Enter 7 to Exit" << endl;
 		cin >> choice;
 		if (choice == 1) {
 			StackImplementation <char> S;
@@ -259,9 +267,34 @@ int main()
 			for (int i = 0; i < L.Length(); i++)
 				cout << "Element of index " << i + 1 << "is " << L.At(i) << endl;
 		}
+		else if (choice == 6) {
+			cout << "Enter List Of Characters" << endl;
+			cout << "press 1 to stop" << endl;
+			char ch;
+			int numlist;
+			cout << "Enter The Number of Elements in list" << endl;
+			cin >> numlist;
+			LinkedListImplementation <char> l;
+
+			for (int i = 0; i < numlist; i++) {
+				cin >> ch;
+				l.Append(ch);
+			}
+		
+			int num;
+			cout << "Enter the number of elements to keep in list" << endl;
+			cin >> num;
+			TruncateList(l, num);
+			cout << "Trancated List" << endl;
+			for (int i = 0; i < num; i++) {
+				cout << l.At(i);
+				l.DeleteAt(i);
+			}
+			
+		}
 		else {
 			break;
 			}
-	}while (choice != 6);
+	}while (choice != 7);
 	return 0;
 }
