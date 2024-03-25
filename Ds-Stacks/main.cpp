@@ -16,6 +16,7 @@ bool isEqualQueue(queue <int> q1, queue <int> q2) {
 				q2.pop();
 				if (q1.size() == 0)
 					return true;
+				else return false;
 			}
 			else {
 				return false;
@@ -27,7 +28,7 @@ bool isEqualQueue(queue <int> q1, queue <int> q2) {
 		return false;
 }
 //Function to check if the brackets are balanaced 
-void BalancedBrackets(string s,stack <char> &st){
+bool BalancedBrackets(string s,stack <char> st){
 	for (int i = 0; i < s.length(); i++) {
 		if (s[i] == ')' && !st.empty() && st.top()=='(') {
 			st.pop();
@@ -36,9 +37,14 @@ void BalancedBrackets(string s,stack <char> &st){
 			st.push(s[i]);
 		}
 		else {
-			st.push('!');
+			return false;
 		}
 	}
+	if (!st.empty()) {
+		return false;
+	}
+	else
+		return true;
 }
 //Function to remove desired value on top of the stack
 template<class T>
@@ -236,8 +242,8 @@ int main()
 			stack <char> st;
 			cout << "Enter a String of braces to test" << endl;
 			cin >> str;
-			BalancedBrackets(str, st);
-			if (st.empty())
+			
+			if (BalancedBrackets(str, st))
 				cout << "Balanced" << endl;
 			else
 				cout << "Not Balanced" << endl;
