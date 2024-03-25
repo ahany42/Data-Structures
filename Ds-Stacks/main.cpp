@@ -269,7 +269,6 @@ int main()
 		}
 		else if (choice == 6) {
 			cout << "Enter List Of Characters" << endl;
-			cout << "press 1 to stop" << endl;
 			char ch;
 			int numlist;
 			cout << "Enter The Number of Elements in list" << endl;
@@ -284,13 +283,12 @@ int main()
 			int num;
 			cout << "Enter the number of elements to keep in list" << endl;
 			cin >> num;
-			TruncateList(l, num);
-			cout << "Trancated List" << endl;
-			for (int i = 0; i < num; i++) {
-				cout << l.At(i);
-				l.DeleteAt(i);
-			}
-			
+				TruncateList(l, num);
+				cout << "Trancated List" << endl;
+				for (int i = 0; i < num; i++) {
+					cout << l.At(i);
+				}
+				cout << endl;
 		}
 		else {
 			break;
