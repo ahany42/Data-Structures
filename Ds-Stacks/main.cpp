@@ -9,13 +9,13 @@
 using namespace std;
 
 //Function to check if 2 Queues are identical
-bool isEqualQueue(queue <int> q1, queue <int> q2) {
-	if (q1.size() == q2.size()) {
+bool isEqualQueue(QueueImplementation <int> q1, QueueImplementation <int> q2) {
+	if (q1.length() == q2.length()) {
 		while (!q1.empty()) {
-			if (q1.front() == q2.front()) {
-				q1.pop();
-				q2.pop();
-				if (q1.size() == 0)
+			if (q1.Front() == q2.Front()) {
+				q1.dequeue();
+				q2.dequeue();
+				if (q1.length() == 0)
 					return true;
 				else return false;
 			}
@@ -223,8 +223,8 @@ int main()
 			
 		}
 		else if (choice == 3) {
-			queue <int> q1;
-			queue <int> q2;
+			QueueImplementation <int> q1;
+			QueueImplementation <int> q2;
 			char ch;
 			int num;
 			cout << "Enter Integers for Queues Comparisons" << endl;
@@ -232,13 +232,13 @@ int main()
 			cin >> ch;
 			while (ch != 'N' || ch != 'n') {
 				cin >> num;
-				q1.push(num);
+				q1.enqueue(num);
 			}
 			cout << "Enter N when you complete the input of queue " << endl;
 			cin >> ch;
 			while (ch != 'N' || ch != 'n') {
 				cin >> num;
-				q2.push(num);
+				q2.enqueue(num);
 			}
 			if (isEqualQueue(q1, q2))
 				cout << "Identical Queues" << endl;

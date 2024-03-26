@@ -14,7 +14,7 @@ public:
 	T Front();
 	bool empty();
 	bool full();
-	void clearQueue();
+	void clear();
 	static bool iseqaul(QueueImplementation , QueueImplementation);
 	~QueueImplementation();
 };
