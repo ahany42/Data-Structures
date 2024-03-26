@@ -58,9 +58,12 @@ bool QueueImplementation<T>::empty()
 {
 	return (count == 0);
 }
-
-
-
+template <class T>
+void QueueImplementation<T>::clearqueue() {
+	while (!empty()) {
+		dequeue();
+	}
+}
 template <class T>
 QueueImplementation<T>::~QueueImplementation(void)
 {

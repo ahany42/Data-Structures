@@ -75,7 +75,7 @@ void TruncateList(LinkedListImplementation <T> &l,int num) {
 int main()
 {
 	
-	int choice;
+	/*int choice;
 	do {
 		cout << "---------------------" << endl;
 		cout << "Enter 1 For Stacks" << endl;
@@ -84,7 +84,7 @@ int main()
 		cout << "Enter 4 For Balanced Brackets" << endl;
 		cout << "Enter 5 For Linked Lists" << endl;
 		cout << "Enter 6 to Truncate List " << endl;
-		cout << "Enter 7 to Exit" << endl;
+		cout << "Enter 8 to Exit" << endl;
 		cin >> choice;
 		if (choice == 1) {
 			StackImplementation <char> S;
@@ -290,9 +290,16 @@ int main()
 				}
 				cout << endl;
 		}
+		else if (choice == 7) {
+			QueueImplementation <int> q3;
+			q3.enqueue(10);
+			q3.enqueue(20);
+			q3.enqueue(30);
+		}
 		else {
 			break;
 			}
-	}while (choice != 7);
+	}while (choice != 8);*/
+
 	return 0;
 }
