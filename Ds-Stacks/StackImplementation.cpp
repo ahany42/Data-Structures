@@ -8,18 +8,18 @@ StackImplementation<T>::StackImplementation(void)
 	arr = new char[size];
 }
 template <class T>
-int StackImplementation<T>::StackSize() {
+int StackImplementation<T>::length() {
 	return count;
 }
 template <class T>
-void StackImplementation<T>::StackPush(T value) {
+void StackImplementation<T>::push(T value) {
 	if (size == count)
 		ExpandStack();
 	arr[count] = value;
 	count++;
 }
 template <class T>
-void StackImplementation<T>::StackPop() {
+void StackImplementation<T>::pop() {
 	count--;
 }
 template <class T>
@@ -27,7 +27,7 @@ bool StackImplementation<T>::empty() {
 	return (count == 0);
 }
 template <class T>
-T StackImplementation<T>::StackTop() {
+T StackImplementation<T>::top() {
 	assert(!empty());
 	return arr [count-1];
 }
@@ -41,6 +41,12 @@ void StackImplementation<T>::ExpandStack() {
 	delete[] arr;
 	arr = temp;
 	
+}
+template <class T>
+void StackImplementation<T>::clear() {
+	while (!empty()) {
+		pop();
+	}
 }
 template <class T>
 StackImplementation<T>::~StackImplementation(void)

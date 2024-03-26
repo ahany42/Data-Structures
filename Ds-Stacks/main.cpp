@@ -29,7 +29,7 @@ bool isEqualQueue(queue <int> q1, queue <int> q2) {
 		return false;
 }
 //Function to check if the brackets are balanaced 
-bool BalancedBrackets(string s,stack <char> st){
+bool BalancedBrackets(string s, StackImplementation<char> st){
 	for (int i = 0; i < s.length(); i++) {
 		if (s[i] == ')' && !st.empty() && st.top()=='(') {
 			st.pop();
@@ -49,8 +49,8 @@ bool BalancedBrackets(string s,stack <char> st){
 }
 //Function to remove desired value on top of the stack
 template<class T>
-void MovetoTop(stack <T> &s,T value) {
-	stack<T> temp;
+void MovetoTop(StackImplementation <T> &s,T value) {
+	StackImplementation <T> temp;
 	while (!s.empty()) {
 		if (s.top()!=value) {
 			temp.push(s.top());
@@ -75,7 +75,7 @@ void TruncateList(LinkedListImplementation <T> &l,int num) {
 int main()
 {
 	
-	/*int choice;
+	int choice;
 	do {
 		cout << "---------------------" << endl;
 		cout << "Enter 1 For Stacks" << endl;
@@ -103,7 +103,7 @@ int main()
 				if (choice2 == 1) {
 					cout << "Enter Char to Stack" << endl;
 						cin >> ch;
-						S.StackPush(ch);
+						S.push(ch);
 						cout << "Element Added successfully" << endl;
 						cout << "---------------------" << endl;
 					
@@ -119,8 +119,8 @@ int main()
 						//Displaying Stack Elements
 						while (!S2.empty())
 						{
-							cout << "Element " << i + 1 << " in Stack= " << S2.StackTop() << endl;
-							S2.StackPop();
+							cout << "Element " << i + 1 << " in Stack= " << S2.top() << endl;
+							S2.pop();
 
 						}
 					}
@@ -137,7 +137,7 @@ int main()
 					}
 					//Removing Element on top of the stack
 					else {
-						S.StackPop();
+						S.pop();
 						cout << "Removed successfully" << endl;
 
 						
@@ -146,8 +146,8 @@ int main()
 				
 				}
 				else if (choice2 == 4) {
-					stack <int> s;
-					stack <int> tmp;
+					StackImplementation <int> s;
+					StackImplementation <int> tmp;
 					s.push(1);
 					s.push(2);
 					s.push(3);
@@ -247,7 +247,7 @@ int main()
 		}
 		else if (choice == 4) {
 			string str;
-			stack <char> st;
+			StackImplementation <char> st;
 			cout << "Enter a String of braces to test" << endl;
 			cin >> str;
 			
@@ -299,7 +299,8 @@ int main()
 		else {
 			break;
 			}
-	}while (choice != 8);*/
+	}while (choice != 8);
+
 
 	return 0;
 }
