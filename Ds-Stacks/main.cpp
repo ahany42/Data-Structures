@@ -9,7 +9,8 @@
 using namespace std;
 
 //Function to check if 2 Queues are identical
-bool isEqualQueue(QueueImplementation <int> q1, QueueImplementation <int> q2) {
+template<class T>
+bool isEqualQueue(QueueImplementation <T> q1, QueueImplementation <T> q2) {
 	if (q1.length() == q2.length()) {
 		while (!q1.empty()) {
 			if (q1.Front() == q2.Front()) {
@@ -72,6 +73,51 @@ void TruncateList(LinkedListImplementation <T> &l,int num) {
 	for (int i = l.Length(); i < num; i--)
 		l.DeleteAt(i);
 }
+/*Function to promote 1 element in queue
+* Sample input 10,20,30,40,50,70,60,80
+* promte 60 => 10,30,20,40,50,60,70,80
+* */
+template<class T>
+void PromoteInQueue(queue <T> &q,T value) {
+	queue <T>temp  = q;
+
+	int i = -1;
+	while (!temp.empty()) {
+		i++;
+		if (temp.front() == value) {
+			break;
+		}
+		temp.pop();
+	}
+	if (i == 0)
+		return;
+	temp = q;
+	while (!q.empty()) {
+		q.pop();
+	}
+	T valuetoshift;
+	for (int j = 0; j < i ; j++) {
+		if (temp.empty())
+			break;
+		if (j == i - 1) {
+			valuetoshift = temp.front();
+			temp.pop();
+			break;
+		}
+		q.push(temp.front());
+		temp.pop();
+	}
+	temp.pop();
+	q.push(value);
+	q.push(valuetoshift);
+	while (!temp.empty()) {
+		q.push(temp.front());
+		temp.pop();
+	
+	}
+	
+	
+}
 int main()
 {
 	
@@ -84,6 +130,7 @@ int main()
 		cout << "Enter 4 For Balanced Brackets" << endl;
 		cout << "Enter 5 For Linked Lists" << endl;
 		cout << "Enter 6 to Truncate List " << endl;
+		cout << "Enter 7 to Promote Element In queue " << endl;
 		cout << "Enter 8 to Exit" << endl;
 		cin >> choice;
 		if (choice == 1) {
@@ -291,12 +338,24 @@ int main()
 				cout << endl;
 		}
 		else if (choice == 7) {
-			QueueImplementation <int> q3;
-			q3.enqueue(10);
-			q3.enqueue(20);
-			q3.enqueue(30);
+			queue <int> q;
+			q.push(10);
+			q.push(20);
+			q.push(30);
+			q.push(40);
+			q.push(50);
+			q.push(70);
+			q.push(60);
+			q.push(80);
+			PromoteInQueue(q, 60);
+			while (!q.empty()) {
+				cout << q.front() << " ";
+				q.pop();
+			}
+			cout << endl;
 		}
 		else {
+
 			break;
 			}
 	}while (choice != 8);
