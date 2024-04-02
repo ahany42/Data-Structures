@@ -1,6 +1,7 @@
 #include "BSTImplementation.h"
 #include <iostream>
 #include <assert.h>
+using namespace std;
 template <class T>
 Node <T>::Node() {
 	left = right = NULL;
@@ -64,5 +65,48 @@ void BSTImplementation<T>::Insert(T val) {
 				}
 			}
 		}
+	}
+}
+template <class T>
+void BSTImplementation<T>::traverse(Order order)
+{
+	if (order == INORDER)
+		inOrder(root);
+	else if (order == PREORDER)
+		preOrder(root);
+	else
+		postOrder(root);
+}
+
+template <class T>
+void BSTImplementation<T>::inOrder(Node<T>* node)
+{
+	if (node != NULL)
+	{
+		inOrder(node->left);
+		cout << node->value << endl;
+		inOrder(node->right);
+	}
+}
+
+template <class T>
+void BSTImplementation<T>::preOrder(Node<T>* node)
+{
+	if (node != NULL)
+	{
+		cout << node->value << endl;
+		preOrder(node->left);
+		preOrder(node->right);
+	}
+}
+
+template <class T>
+void BSTImplementation<T>::postOrder(Node<T>* node)
+{
+	if (node != NULL)
+	{
+		postOrder(node->left);
+		postOrder(node->right);
+		cout << node->value << endl;
 	}
 }

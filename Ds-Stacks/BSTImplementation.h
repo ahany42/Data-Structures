@@ -1,4 +1,11 @@
 #pragma once
+enum Order
+{
+	INORDER = 0,
+	PREORDER = 1,
+	POSTORDER = 2,
+	XOrder = 3
+};
 template <class T>
 class Node
 {
@@ -17,10 +24,10 @@ public:
 	bool contains(T val);
 	T FindNode(T val);
 	void Insert(T val);
-	/*void Traverse(Order order);
-	void InOrder(Node<T>* node);
-	void PreOrder(Node<T>* node);
-	void PostOrder(Node<T>* node);*/
+	void traverse(Order order);
+	void inOrder(Node<T>* node);
+	void preOrder(Node<T>* node);
+	void postOrder(Node<T>* node);
 	void DeleteBST(Node<T>* node);
 	~BSTImplementation();
 };
