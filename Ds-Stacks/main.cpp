@@ -118,6 +118,16 @@ void PromoteInQueue(queue <T> &q,T value) {
 	
 	
 }
+void ReverseString(string str) {
+	StackImplementation   <char> s;
+	for (int i = 0; i < str.size(); i++)
+		s.push(str[i]);
+	while (!s.empty()) {
+		cout << s.top();
+		s.pop();
+	}
+	cout << endl;
+}
 int main()
 {
 	
@@ -145,6 +155,7 @@ int main()
 				cout << "To Display Elements in Stack Enter 2" << endl;
 				cout << "To Remove the top Element from Stack Enter 3" << endl;
 				cout << "To Move Element to the top of Stack Enter 4" << endl;
+				cout << "To Reverse String Enter 5" << endl;
 				cout << "Enter 7 To Return to Main Menu" << endl;
 				cin >> choice2;
 				if (choice2 == 1) {
@@ -207,6 +218,12 @@ int main()
 						tmp.pop();
 					}
 					cout << endl;
+				}
+				else if (choice2 == 5) {
+					string str;
+					cout << "Enter String To Reverse" << endl;
+					cin >> str;
+					ReverseString(str);
 				}
 				else {
 					break;
