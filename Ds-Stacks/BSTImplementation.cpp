@@ -21,7 +21,7 @@ bool BSTImplementation<T>::contains(T val) {
 	return (tmp != NULL);
 }
 template <class T>
-T BSTImplementation<T>::FindNode(T val) {
+Node<T>* BSTImplementation<T>::FindNode(T val) {
 	Node <T>* tmp = root;
 	while (tmp != NULL) {
 		if (tmp->value == val) {
@@ -35,6 +35,23 @@ T BSTImplementation<T>::FindNode(T val) {
 		}
 	}
 	return tmp;
+}
+template <class T>
+Node<T>* BSTImplementation<T>::FindParentNode(T val) {
+	Node <T>* b = NULL;
+	Node <T>* a = root;
+	while (a != NULL) {
+		if (a->value == val) {
+			break;
+		}
+		else if (val > a->value) {
+			a = a->right;
+		}
+		else {
+			a = a->left;
+		}
+	}
+	return b;
 }
 template <class T>
 void BSTImplementation<T>::Insert(T val) {

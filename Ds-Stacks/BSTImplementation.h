@@ -22,7 +22,8 @@ class BSTImplementation
 public:
 	BSTImplementation();
 	bool contains(T val);
-	T FindNode(T val);
+	Node<T>* FindNode(T val);
+	Node<T>* FindParentNode(T val);
 	void Insert(T val);
 	void traverse(Order order);
 	void inOrder(Node<T>* node);
