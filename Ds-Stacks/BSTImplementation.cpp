@@ -21,7 +21,7 @@ bool BSTImplementation<T>::contains(T val) {
 	return (tmp != NULL);
 }
 template <class T>
-Node<T>* BSTImplementation<T>::FindNode(T val) {
+Node<T>* BSTImplementation<T>::findNode(T val) {
 	Node <T>* tmp = root;
 	while (tmp != NULL) {
 		if (tmp->value == val) {
@@ -37,7 +37,7 @@ Node<T>* BSTImplementation<T>::FindNode(T val) {
 	return tmp;
 }
 template <class T>
-Node<T>* BSTImplementation<T>::FindParentNode(T val) {
+Node<T>* BSTImplementation<T>::findParentNode(T val) {
 	Node <T>* b = NULL;
 	Node <T>* a = root;
 	while (a != NULL) {
@@ -54,7 +54,7 @@ Node<T>* BSTImplementation<T>::FindParentNode(T val) {
 	return b;
 }
 template <class T>
-Node<T>* BSTImplementation<T>::FindMinNode(Node<T>* n) {
+Node<T>* BSTImplementation<T>::findMinNode(Node<T>* n) {
 	Node <T>* MinNode = n;
 	while (MinNode->left != NULL) {
 		MinNode = MinNode->left;
@@ -62,7 +62,7 @@ Node<T>* BSTImplementation<T>::FindMinNode(Node<T>* n) {
 	return MinNode;
 }
 template <class T>
-void BSTImplementation<T>::Insert(T val) {
+void BSTImplementation<T>::insert(T val) {
 	assert(!contains(val));
 	Node<T>* newnode = new Node<T>(val);
 	if (root == NULL) {
@@ -133,5 +133,70 @@ void BSTImplementation<T>::postOrder(Node<T>* node)
 		postOrder(node->left);
 		postOrder(node->right);
 		cout << node->value << endl;
+	}
+}
+template <class T>
+void BSTImplementation<T>::removeNode(T val) {
+	assert(contains(val));
+	Node<T>* n = findNode(val);
+	Node <T>* parent = findParentNode(val);
+	//deleteing a leave node
+	if ((n->left == NULL) && (n->right == NULL))
+	{
+		if (n == root)
+			root = NULL;
+		else {
+		
+			if (parent->value > n->value) {
+				parent->left = NULL;
+			}
+			else {
+				parent->right = NULL;
+			}
+		}
+		delete n;
+	}
+	//deleting node with 1 child
+	else if ((n->left == NULL) && (n->right != NULL)) {
+		if (n == root)
+		{
+			root = n->right;
+		}
+		else {
+			if (n->value < parent->value) {
+				parent->left = n->right;
+			}
+			else {
+				parent->right = n->right;
+			}
+		}
+		delete n;
+	}
+	else if ((n->left != NULL) && (n->right == NULL)) {
+		if (n == root)
+		{
+			root = n->left;
+		}
+		else {
+			if (n->value < parent->value) {
+				parent->left = n->left;
+			}
+			else {
+				parent->right = n->left;
+			}
+		}
+		delete n;
+	}
+	//deleting node with 2 children
+	else {
+		Node<T>* MinNode = findMinNode(n->right);
+		n->value = MinNode->value;
+		if (parent == n) {
+			parent->right = MinNode->right;
+		}
+		else {
+			parent->left = MinNode->right;
+		}
+		delete MinNode;
 	}
 }
