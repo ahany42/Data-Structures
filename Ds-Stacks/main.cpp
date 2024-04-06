@@ -3,6 +3,7 @@
 #include "StackImplementation.cpp"
 #include "QueueImplementation.cpp"
 #include "LinkedListImplementation.cpp"
+#include "BSTImplementation.cpp"
 #include <queue>
 #include <stack>
 #include <list>
@@ -141,7 +142,8 @@ int main()
 		cout << "Enter 5 For Linked Lists" << endl;
 		cout << "Enter 6 to Truncate List " << endl;
 		cout << "Enter 7 to Promote Element In queue " << endl;
-		cout << "Enter 8 to Exit" << endl;
+		cout << "Enter 8 For Binary Search Trees" << endl;
+		cout << "Enter 9 to Exit" << endl;
 		cin >> choice;
 		if (choice == 1) {
 			StackImplementation <char> S;
@@ -159,6 +161,7 @@ int main()
 				cout << "Enter 7 To Return to Main Menu" << endl;
 				cin >> choice2;
 				if (choice2 == 1) {
+					//Stack test
 					cout << "Enter Char to Stack" << endl;
 						cin >> ch;
 						S.push(ch);
@@ -232,6 +235,7 @@ int main()
 			} while (choice2 != 7);
 		}
 		else if (choice == 2) {
+			//Queues test
 			QueueImplementation<char> q;
 			QueueImplementation<char> q2;
 			int choice2;
@@ -287,6 +291,7 @@ int main()
 			
 		}
 		else if (choice == 3) {
+			//Identical queues test
 			QueueImplementation <int> q1;
 			QueueImplementation <int> q2;
 			char ch;
@@ -310,6 +315,7 @@ int main()
 				cout << "Queues Not Identical" << endl;
 		}
 		else if (choice == 4) {
+			//Blanaced Braces test
 			string str;
 			StackImplementation <char> st;
 			cout << "Enter a String of braces to test" << endl;
@@ -321,6 +327,7 @@ int main()
 				cout << "Not Balanced" << endl;
 		}
 		else if (choice == 5) {
+			//Linked list test
 			LinkedListImplementation <int> L;
 			L.Append(9);
 			L.Append(10);
@@ -332,6 +339,7 @@ int main()
 				cout << "Element of index " << i + 1 << "is " << L.At(i) << endl;
 		}
 		else if (choice == 6) {
+			//Truncate fn test
 			cout << "Enter List Of Characters" << endl;
 			char ch;
 			int numlist;
@@ -355,6 +363,7 @@ int main()
 				cout << endl;
 		}
 		else if (choice == 7) {
+			//Promote in Queue test
 			queue <int> q;
 			q.push(10);
 			q.push(20);
@@ -371,11 +380,14 @@ int main()
 			}
 			cout << endl;
 		}
+		else if (choice == 8) {
+			//BST Test
+		}
 		else {
 
 			break;
 			}
-	}while (choice != 8);
+	}while (choice != 9);
 
 
 	return 0;

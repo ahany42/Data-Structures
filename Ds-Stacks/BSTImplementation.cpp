@@ -3,11 +3,11 @@
 #include <assert.h>
 using namespace std;
 template <class T>
-Node <T>::Node() {
+BSTNode <T>::BSTNode() {
 	left = right = NULL;
 }
 template <class T>
-Node <T>::Node(T val) {
+BSTNode <T>::BSTNode(T val) {
 	left = right = NULL;
 	value = val;
 }
@@ -17,12 +17,12 @@ BSTImplementation<T>::BSTImplementation() {
 }
 template <class T>
 bool BSTImplementation<T>::contains(T val) {
-	Node <T>* tmp = FindNode(val);
+	BSTNode <T>* tmp = findNode(val);
 	return (tmp != NULL);
 }
 template <class T>
-Node<T>* BSTImplementation<T>::findNode(T val) {
-	Node <T>* tmp = root;
+BSTNode<T>* BSTImplementation<T>::findNode(T val) {
+	BSTNode <T>* tmp = root;
 	while (tmp != NULL) {
 		if (tmp->value == val) {
 			return tmp;
@@ -37,9 +37,9 @@ Node<T>* BSTImplementation<T>::findNode(T val) {
 	return tmp;
 }
 template <class T>
-Node<T>* BSTImplementation<T>::findParentNode(T val) {
-	Node <T>* b = NULL;
-	Node <T>* a = root;
+BSTNode<T>* BSTImplementation<T>::findParentNode(T val) {
+	BSTNode <T>* b = NULL;
+	BSTNode <T>* a = root;
 	while (a != NULL) {
 		if (a->value == val) {
 			break;
@@ -54,8 +54,8 @@ Node<T>* BSTImplementation<T>::findParentNode(T val) {
 	return b;
 }
 template <class T>
-Node<T>* BSTImplementation<T>::findMinNode(Node<T>* n) {
-	Node <T>* MinNode = n;
+BSTNode<T>* BSTImplementation<T>::findMinNode(BSTNode<T>* n) {
+	BSTNode <T>* MinNode = n;
 	while (MinNode->left != NULL) {
 		MinNode = MinNode->left;
 	}
@@ -64,12 +64,12 @@ Node<T>* BSTImplementation<T>::findMinNode(Node<T>* n) {
 template <class T>
 void BSTImplementation<T>::insert(T val) {
 	assert(!contains(val));
-	Node<T>* newnode = new Node<T>(val);
+	BSTNode<T>* newnode = new BSTNode<T>(val);
 	if (root == NULL) {
 		root = newnode;
 	}
 	else {
-		Node <T>* tmp = root;
+		BSTNode <T>* tmp = root;
 		while (true){
 			if (val > tmp->value) {
 				if (tmp->right == NULL) {
@@ -104,7 +104,7 @@ void BSTImplementation<T>::traverse(Order order)
 }
 
 template <class T>
-void BSTImplementation<T>::inOrder(Node<T>* node)
+void BSTImplementation<T>::inOrder(BSTNode<T>* node)
 {
 	if (node != NULL)
 	{
@@ -115,7 +115,7 @@ void BSTImplementation<T>::inOrder(Node<T>* node)
 }
 
 template <class T>
-void BSTImplementation<T>::preOrder(Node<T>* node)
+void BSTImplementation<T>::preOrder(BSTNode<T>* node)
 {
 	if (node != NULL)
 	{
@@ -126,7 +126,7 @@ void BSTImplementation<T>::preOrder(Node<T>* node)
 }
 
 template <class T>
-void BSTImplementation<T>::postOrder(Node<T>* node)
+void BSTImplementation<T>::postOrder(BSTNode<T>* node)
 {
 	if (node != NULL)
 	{
@@ -138,8 +138,8 @@ void BSTImplementation<T>::postOrder(Node<T>* node)
 template <class T>
 void BSTImplementation<T>::removeNode(T val) {
 	assert(contains(val));
-	Node<T>* n = findNode(val);
-	Node <T>* parent = findParentNode(val);
+	BSTNode<T>* n = findNode(val);
+	BSTNode <T>* parent = findParentNode(val);
 	//deleteing a leave node
 	if ((n->left == NULL) && (n->right == NULL))
 	{
@@ -189,7 +189,7 @@ void BSTImplementation<T>::removeNode(T val) {
 	}
 	//deleting node with 2 children
 	else {
-		Node<T>* MinNode = findMinNode(n->right);
+		BSTNode<T>* MinNode = findMinNode(n->right);
 		n->value = MinNode->value;
 		if (parent == n) {
 			parent->right = MinNode->right;

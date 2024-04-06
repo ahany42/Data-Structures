@@ -7,31 +7,31 @@ enum Order
 	XOrder = 3
 };
 template <class T>
-class Node
+class BSTNode
 {
 public:
 	T value;
-	Node<T>* left, * right;
-	Node();
-	Node(T val);
+	BSTNode<T>* left, * right;
+	BSTNode();
+	BSTNode(T val);
 };
 template <class T>
 class BSTImplementation
 {
-	Node<T>* root;
+	BSTNode<T>* root;
 public:
 	BSTImplementation();
 	bool contains(T val);
-	Node<T>* findNode(T val);
-	Node<T>* findParentNode(T val);
-	Node<T>* findMinNode(Node<T>* n);
+	BSTNode<T>* findNode(T val);
+	BSTNode<T>* findParentNode(T val);
+	BSTNode<T>* findMinNode(BSTNode<T>* n);
 	void removeNode(T val);
 	void insert(T val);
 	void traverse(Order order);
-	void inOrder(Node<T>* node);
-	void preOrder(Node<T>* node);
-	void postOrder(Node<T>* node);
-	void DeleteBST(Node<T>* node);
+	void inOrder(BSTNode<T>* node);
+	void preOrder(BSTNode<T>* node);
+	void postOrder(BSTNode<T>* node);
+	void DeleteBST(BSTNode<T>* node);
 	~BSTImplementation();
 };
 
