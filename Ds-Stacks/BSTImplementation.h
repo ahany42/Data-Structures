@@ -24,6 +24,7 @@ public:
 	bool contains(T val);
 	Node<T>* FindNode(T val);
 	Node<T>* FindParentNode(T val);
+	Node<T>* FindMinNode(Node<T>* n);
 	void Insert(T val);
 	void traverse(Order order);
 	void inOrder(Node<T>* node);

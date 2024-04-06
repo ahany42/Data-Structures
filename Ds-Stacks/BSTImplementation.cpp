@@ -54,6 +54,14 @@ Node<T>* BSTImplementation<T>::FindParentNode(T val) {
 	return b;
 }
 template <class T>
+Node<T>* BSTImplementation<T>::FindMinNode(Node<T>* n) {
+	Node <T>* MinNode = n;
+	while (MinNode->left != NULL) {
+		MinNode = MinNode->left;
+	}
+	return MinNode;
+}
+template <class T>
 void BSTImplementation<T>::Insert(T val) {
 	assert(!contains(val));
 	Node<T>* newnode = new Node<T>(val);
