@@ -3,7 +3,7 @@
 #include <assert.h>
 using namespace std;
 template <class T>
-BSTNode <T>::BSTNode() {
+BSTNode <T>::BSTNode(void) {
 	left = right = NULL;
 }
 template <class T>
@@ -12,7 +12,7 @@ BSTNode <T>::BSTNode(T val) {
 	value = val;
 }
 template <class T>
-BSTImplementation<T>::BSTImplementation() {
+BSTImplementation<T>::BSTImplementation(void) {
 	root = NULL;
 }
 template <class T>

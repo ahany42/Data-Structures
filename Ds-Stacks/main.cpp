@@ -3,7 +3,7 @@
 #include "StackImplementation.cpp"
 #include "QueueImplementation.cpp"
 #include "LinkedListImplementation.cpp"
-//#include "BSTImplementation.cpp"
+#include "BSTImplementation.cpp"
 #include <queue>
 #include <stack>
 #include <list>
@@ -382,7 +382,18 @@ int main()
 		}
 		else if (choice == 8) {
 			//BST Test
-			
+			BSTImplementation <int> BST;
+			BST.insert(4);
+			BST.insert(1);
+			BST.insert(8);
+			BST.insert(9);
+			BST.insert(7);
+			BST.insert(2);
+			//inorder traversal
+			BST.traverse(0);
+			BST.removeNode(8);
+			//inorder traversal
+			BST.traverse(0);
 
 		}
 		else {

@@ -5,7 +5,7 @@ class BSTNode
 public:
 	T value;
 	BSTNode<T>* left, * right;
-	BSTNode();
+	BSTNode(void);
 	BSTNode(T val);
 };
 template <class T>
@@ -13,7 +13,7 @@ class BSTImplementation
 {
 	BSTNode<T>* root;
 public:
-	BSTImplementation();
+	BSTImplementation(void);
 	bool contains(T val);
 	BSTNode<T>* findNode(T val);
 	BSTNode<T>* findParentNode(T val);
