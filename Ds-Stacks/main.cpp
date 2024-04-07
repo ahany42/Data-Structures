@@ -3,7 +3,7 @@
 #include "StackImplementation.cpp"
 #include "QueueImplementation.cpp"
 #include "LinkedListImplementation.cpp"
-#include "BSTImplementation.cpp"
+//#include "BSTImplementation.cpp"
 #include <queue>
 #include <stack>
 #include <list>
@@ -31,9 +31,9 @@ bool isEqualQueue(QueueImplementation <T> q1, QueueImplementation <T> q2) {
 		return false;
 }
 //Function to check if the brackets are balanaced 
-bool BalancedBrackets(string s, StackImplementation<char> st){
+bool BalancedBrackets(string s, StackImplementation<char> st) {
 	for (int i = 0; i < s.length(); i++) {
-		if (s[i] == ')' && !st.empty() && st.top()=='(') {
+		if (s[i] == ')' && !st.empty() && st.top() == '(') {
 			st.pop();
 		}
 		else if (s[i] == '(') {
@@ -51,10 +51,10 @@ bool BalancedBrackets(string s, StackImplementation<char> st){
 }
 //Function to remove desired value on top of the stack
 template<class T>
-void MovetoTop(StackImplementation <T> &s,T value) {
+void MovetoTop(StackImplementation <T>& s, T value) {
 	StackImplementation <T> temp;
 	while (!s.empty()) {
-		if (s.top()!=value) {
+		if (s.top() != value) {
 			temp.push(s.top());
 			s.pop();
 		}
@@ -69,7 +69,7 @@ void MovetoTop(StackImplementation <T> &s,T value) {
 	s.push(value);
 }
 template<class T>
-void TruncateList(LinkedListImplementation <T> &l,int num) {
+void TruncateList(LinkedListImplementation <T>& l, int num) {
 	assert(num < l.Length());
 	for (int i = l.Length(); i < num; i--)
 		l.DeleteAt(i);
@@ -79,8 +79,8 @@ void TruncateList(LinkedListImplementation <T> &l,int num) {
 * promte 60 => 10,30,20,40,50,60,70,80
 * */
 template<class T>
-void PromoteInQueue(queue <T> &q,T value) {
-	queue <T>temp  = q;
+void PromoteInQueue(queue <T>& q, T value) {
+	queue <T>temp = q;
 
 	int i = -1;
 	while (!temp.empty()) {
@@ -97,7 +97,7 @@ void PromoteInQueue(queue <T> &q,T value) {
 		q.pop();
 	}
 	T valuetoshift;
-	for (int j = 0; j < i ; j++) {
+	for (int j = 0; j < i; j++) {
 		if (temp.empty())
 			break;
 		if (j == i - 1) {
@@ -114,10 +114,10 @@ void PromoteInQueue(queue <T> &q,T value) {
 	while (!temp.empty()) {
 		q.push(temp.front());
 		temp.pop();
-	
+
 	}
-	
-	
+
+
 }
 void ReverseString(string str) {
 	StackImplementation   <char> s;
@@ -131,7 +131,7 @@ void ReverseString(string str) {
 }
 int main()
 {
-	
+
 	int choice;
 	do {
 		cout << "---------------------" << endl;
@@ -150,8 +150,8 @@ int main()
 			StackImplementation <char> S2;
 			int choice2;
 			char ch;
-			
-		
+
+
 			do {
 				cout << "To Add Element in Stack Enter 1" << endl;
 				cout << "To Display Elements in Stack Enter 2" << endl;
@@ -163,12 +163,12 @@ int main()
 				if (choice2 == 1) {
 					//Stack test
 					cout << "Enter Char to Stack" << endl;
-						cin >> ch;
-						S.push(ch);
-						cout << "Element Added successfully" << endl;
-						cout << "---------------------" << endl;
-					
-				}	
+					cin >> ch;
+					S.push(ch);
+					cout << "Element Added successfully" << endl;
+					cout << "---------------------" << endl;
+
+				}
 				else if (choice2 == 2) {
 					//Validation on empty Stack
 					if (S.empty()) {
@@ -185,26 +185,26 @@ int main()
 
 						}
 					}
-					
+
 					cout << "---------------------" << endl;
-				
+
 				}
 				else if (choice2 == 3) {
-					
+
 					if (S.empty()) {
 						cout << "Empty Stack" << endl;
 						cout << "---------------------" << endl;
-						
+
 					}
 					//Removing Element on top of the stack
 					else {
 						S.pop();
 						cout << "Removed successfully" << endl;
 
-						
+
 					}
-				
-				
+
+
 				}
 				else if (choice2 == 4) {
 					StackImplementation <int> s;
@@ -217,7 +217,7 @@ int main()
 					MovetoTop(s, 3);
 					tmp = s;
 					while (!tmp.empty()) {
-						cout << tmp.top()<<" ";
+						cout << tmp.top() << " ";
 						tmp.pop();
 					}
 					cout << endl;
@@ -231,7 +231,7 @@ int main()
 				else {
 					break;
 				}
-				
+
 			} while (choice2 != 7);
 		}
 		else if (choice == 2) {
@@ -279,16 +279,16 @@ int main()
 						cout << "Removed Successfully" << endl;
 						cout << "---------------------" << endl;
 					}
-					
+
 				}
 				else {
 					break;
 				}
 			} while (choice2 != 7);
-			
-			
-			
-			
+
+
+
+
 		}
 		else if (choice == 3) {
 			//Identical queues test
@@ -320,7 +320,7 @@ int main()
 			StackImplementation <char> st;
 			cout << "Enter a String of braces to test" << endl;
 			cin >> str;
-			
+
 			if (BalancedBrackets(str, st))
 				cout << "Balanced" << endl;
 			else
@@ -351,16 +351,16 @@ int main()
 				cin >> ch;
 				l.Append(ch);
 			}
-		
+
 			int num;
 			cout << "Enter the number of elements to keep in list" << endl;
 			cin >> num;
-				TruncateList(l, num);
-				cout << "Trancated List" << endl;
-				for (int i = 0; i < num; i++) {
-					cout << l.At(i);
-				}
-				cout << endl;
+			TruncateList(l, num);
+			cout << "Trancated List" << endl;
+			for (int i = 0; i < num; i++) {
+				cout << l.At(i);
+			}
+			cout << endl;
 		}
 		else if (choice == 7) {
 			//Promote in Queue test
@@ -382,12 +382,14 @@ int main()
 		}
 		else if (choice == 8) {
 			//BST Test
+			
+
 		}
 		else {
 
 			break;
-			}
-	}while (choice != 9);
+		}
+	} while (choice != 9);
 
 
 	return 0;

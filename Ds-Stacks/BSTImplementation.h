@@ -1,11 +1,4 @@
 #pragma once
-enum Order
-{
-	INORDER = 0,
-	PREORDER = 1,
-	POSTORDER = 2,
-	XOrder = 3
-};
 template <class T>
 class BSTNode
 {
@@ -27,7 +20,7 @@ public:
 	BSTNode<T>* findMinNode(BSTNode<T>* n);
 	void removeNode(T val);
 	void insert(T val);
-	void traverse(Order order);
+	void traverse(int num);
 	void inOrder(BSTNode<T>* node);
 	void preOrder(BSTNode<T>* node);
 	void postOrder(BSTNode<T>* node);

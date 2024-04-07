@@ -82,7 +82,7 @@ void BSTImplementation<T>::insert(T val) {
 			}
 			else {
 				if (tmp->left == NULL) {
-					tmp->left = val;
+					tmp->left = newnode;
 					break;
 				}
 				else {
@@ -93,11 +93,11 @@ void BSTImplementation<T>::insert(T val) {
 	}
 }
 template <class T>
-void BSTImplementation<T>::traverse(Order order)
+void BSTImplementation<T>::traverse(int order)
 {
-	if (order == INORDER)
+	if (order == 0)
 		inOrder(root);
-	else if (order == PREORDER)
+	else if (order == 1)
 		preOrder(root);
 	else
 		postOrder(root);
