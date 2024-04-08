@@ -1,9 +1,7 @@
 #include <iostream>
-#include<string>
 #include "StackImplementation.cpp"
 #include "QueueImplementation.cpp"
 #include "LinkedListImplementation.cpp"
-#include "BSTree.cpp"
 #include <queue>
 #include <stack>
 #include <list>
@@ -142,8 +140,7 @@ int main()
 		cout << "Enter 5 For Linked Lists" << endl;
 		cout << "Enter 6 to Truncate List " << endl;
 		cout << "Enter 7 to Promote Element In queue " << endl;
-		cout << "Enter 8 For Binary Search Trees" << endl;
-		cout << "Enter 9 to Exit" << endl;
+		cout << "Enter 8 to Exit" << endl;
 		cin >> choice;
 		if (choice == 1) {
 			StackImplementation <char> S;
@@ -380,28 +377,11 @@ int main()
 			}
 			cout << endl;
 		}
-		else if (choice == 8) {
-			//BST Test
-			BSTree<int> B;
-			B.insert(100);
-			B.insert(200);
-			B.insert(90);
-			B.insert(150);
-			B.insert(125);
-			B.insert(88);
-			B.insert(99);
-			B.insert(210);
-
-			B.remove(100);
-
-			B.traverse(INORDER);
-
-		}
 		else {
 
 			break;
 		}
-	} while (choice != 9);
+	} while (choice != 8);
 
 
 	return 0;
