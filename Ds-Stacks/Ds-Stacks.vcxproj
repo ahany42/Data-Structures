@@ -128,7 +128,6 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="ArrayListImplementation.cpp" />
-    <ClCompile Include="BSTree.cpp" />
     <ClCompile Include="LinkedListImplementation.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="QueueImplementation.cpp" />
@@ -136,7 +135,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ArrayListImplementation.h" />
-    <ClInclude Include="BSTree.h" />
     <ClInclude Include="LinkedListImplementation.h" />
     <ClInclude Include="QueueImplementation.h" />
     <ClInclude Include="StackImplementation.h" />
