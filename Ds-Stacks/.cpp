@@ -1,3 +1,9 @@
+
+
+
+
+
+
 #include "BSTImplementation.h"
 #include <iostream>
 #include <assert.h>
@@ -70,7 +76,7 @@ void BSTImplementation<T>::insert(T val) {
 	}
 	else {
 		BSTNode <T>* tmp = root;
-		while (true){
+		while (true) {
 			if (val > tmp->value) {
 				if (tmp->right == NULL) {
 					tmp->right = newnode;
@@ -146,7 +152,7 @@ void BSTImplementation<T>::removeNode(T val) {
 		if (n == root)
 			root = NULL;
 		else {
-		
+
 			if (parent->value > n->value) {
 				parent->left = NULL;
 			}
@@ -200,3 +206,4 @@ void BSTImplementation<T>::removeNode(T val) {
 		delete MinNode;
 	}
 }
+
