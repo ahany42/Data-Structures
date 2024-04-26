@@ -6,6 +6,18 @@
 #include <stack>
 #include <list>
 using namespace std;
+//Function to reverse queue
+void ReverseQ(queue<int>& q) {
+	stack <int> s;
+	while (!q.empty()) {
+		s.push(q.front());
+		q.pop();
+	}
+	while (!s.empty()) {
+		q.push(s.top());
+		s.pop();
+	}
+}
 
 //Function to check if 2 Queues are identical
 template<class T>
@@ -240,6 +252,7 @@ int main()
 				cout << "To Add Element to Queue Enter 1" << endl;
 				cout << "To Display Elements in Queue Enter 2" << endl;
 				cout << "To Remove Element from Queue Enter 3" << endl;
+				cout << "To Reverse Queue Enter 4" << endl;
 				cout << "Enter 7 To Return to Main Menu" << endl;
 				cin >> choice2;
 				//Adding Elements to queue
@@ -277,6 +290,29 @@ int main()
 						cout << "---------------------" << endl;
 					}
 
+				}
+				else if (choice2 == 4) {
+					queue<int> q;
+					q.push(1);
+					q.push(2);
+					q.push(3);
+					q.push(4);
+					cout << "Queue Before Reversing" << endl;
+					queue<int> q1;
+					q1 = q;
+					while (!q1.empty())
+
+					{
+						cout << q1.front() << endl;
+						q1.pop();
+					}
+					ReverseQ(q);
+					cout << "Queue After Reversing" << endl;
+					while (!q.empty())
+					{
+						cout << q.front() << endl;
+						q.pop();
+					}
 				}
 				else {
 					break;
