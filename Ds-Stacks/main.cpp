@@ -2,7 +2,6 @@
 #include "StackImplementation.cpp"
 #include "QueueImplementation.cpp"
 #include "LinkedListImplementation.cpp"
-#include "BSTree.cpp"
 #include <queue>
 #include <stack>
 #include <list>
