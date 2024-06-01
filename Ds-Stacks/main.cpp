@@ -172,6 +172,23 @@ void QReplace(queue <T> &q, T v1, Tv2) {
 	}
 	q = temp;
 }
+void QmoveZeros(queue<int>& q) {
+	queue<int> temp;
+	int counter = 0;
+	if (q.top() == 0)
+	{
+		counter++;
+		q.pop();
+	}
+	else {
+		temp.push(q.top());
+		q.pop();
+	}
+	for (int i = 0; i < counter; i++) {
+		temp.push(0);
+	}
+	temp = q;
+}
 int main()
 {
 
