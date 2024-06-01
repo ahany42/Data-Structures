@@ -139,6 +139,24 @@ void ReverseString(string str) {
 	}
 	cout << endl;
 }
+template <class T>
+void DequeNth(queue<T> &q,int n) {
+	queue<T> temp;
+	int i = 0;
+	while (!q.empty()) {
+		i++;
+		if (i == n) {
+			q.pop();
+			continue;
+		}
+		else {
+
+			temp.push(q.top());
+			q.pop();
+		}
+	}
+	q = temp;
+}
 int main()
 {
 
