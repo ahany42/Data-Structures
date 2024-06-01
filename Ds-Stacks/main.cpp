@@ -209,6 +209,14 @@ void EvenFirst(queue<int>& q) {
 	}
 
 }
+stack<int> DecimalToBinary(int number) {
+	stack<int> binaryStack;
+	while (n > 0) {
+		binaryStack.push(number % 2);
+		number = number / 2;
+	}
+	return binaryStack;
+}
 int main()
 {
 
