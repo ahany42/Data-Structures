@@ -157,6 +157,21 @@ void DequeNth(queue<T> &q,int n) {
 	}
 	q = temp;
 }
+template <class T>
+void QReplace(queue <T> &q, T v1, Tv2) {
+	queue <T> temp;
+	while (!q.empty()) {
+		if (q.front() == v1) {
+			q.pop();
+			temp.push(v2);
+		}
+		else {
+			temp.push(q.top());
+			q.pop();
+		}
+	}
+	q = temp;
+}
 int main()
 {
 
