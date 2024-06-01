@@ -189,6 +189,26 @@ void QmoveZeros(queue<int>& q) {
 	}
 	temp = q;
 }
+void EvenFirst(queue<int>& q) {
+	queue<int> EvenQueue;
+	queue<int> OddQueue;
+	while (!q.empty()) {
+	if (q.top() % 2 == 0)
+		EvenQueue.push(q.top());
+	else
+		OddQueue.push(q.top());
+	q.pop();
+	}
+	while (!EvenQueue.empty()) {
+		q.push(EvenQueue.top());
+		EvenQueue.pop();
+	}
+	while (!OddQueue.empty()) {
+		q.push(OddQueue.top());
+		OddQueue.pop();
+	}
+
+}
 int main()
 {
 
