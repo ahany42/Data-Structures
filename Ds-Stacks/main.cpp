@@ -217,6 +217,18 @@ stack<int> DecimalToBinary(int number) {
 	}
 	return binaryStack;
 }
+bool Palindrome(string str) {
+	stack <char> s;
+	for (int i = 0; i < str.length(); i++) {
+		s.push(str[i]);
+	}
+	for (int i = 0; i < str.length(); i++) {
+		if (str[i] != s.top())
+			return false;
+		s.pop();
+	}
+	else return true;
+}
 int main()
 {
 
