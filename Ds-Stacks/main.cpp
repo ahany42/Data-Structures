@@ -158,7 +158,7 @@ void DequeNth(queue<T> &q,int n) {
 	q = temp;
 }
 template <class T>
-void QReplace(queue <T> &q, T v1, Tv2) {
+void QReplace(queue <T> &q, T v1, T v2) {
 	queue <T> temp;
 	while (!q.empty()) {
 		if (q.front() == v1) {
@@ -175,13 +175,13 @@ void QReplace(queue <T> &q, T v1, Tv2) {
 void QmoveZeros(queue<int>& q) {
 	queue<int> temp;
 	int counter = 0;
-	if (q.top() == 0)
+	if (q.front() == 0)
 	{
 		counter++;
 		q.pop();
 	}
 	else {
-		temp.push(q.top());
+		temp.push(q.front());
 		q.pop();
 	}
 	for (int i = 0; i < counter; i++) {
@@ -193,25 +193,25 @@ void EvenFirst(queue<int>& q) {
 	queue<int> EvenQueue;
 	queue<int> OddQueue;
 	while (!q.empty()) {
-	if (q.top() % 2 == 0)
-		EvenQueue.push(q.top());
+	if (q.front() % 2 == 0)
+		EvenQueue.push(q.front());
 	else
-		OddQueue.push(q.top());
+		OddQueue.push(q.front());
 	q.pop();
 	}
 	while (!EvenQueue.empty()) {
-		q.push(EvenQueue.top());
+		q.push(EvenQueue.front());
 		EvenQueue.pop();
 	}
 	while (!OddQueue.empty()) {
-		q.push(OddQueue.top());
+		q.push(OddQueue.front());
 		OddQueue.pop();
 	}
 
 }
 stack<int> DecimalToBinary(int number) {
 	stack<int> binaryStack;
-	while (n > 0) {
+	while (number > 0) {
 		binaryStack.push(number % 2);
 		number = number / 2;
 	}
@@ -227,7 +227,7 @@ bool Palindrome(string str) {
 			return false;
 		s.pop();
 	}
-	else return true;
+	 return true;
 }
 int main()
 {

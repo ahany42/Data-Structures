@@ -34,7 +34,7 @@ T StackImplementation<T>::top() {
 template <class T>
 void StackImplementation<T>::ExpandStack() {
 	size += 5;
-	char* temp = new char[size];
+	T* temp = new T[size];
 	for (int i = 0; i < count; i++) {
 		temp[i] = arr[i];
 	}

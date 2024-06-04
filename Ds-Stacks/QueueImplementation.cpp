@@ -22,6 +22,9 @@ template <class T>
 void QueueImplementation<T>::enqueue(T val)
 {
 	assert(!full());
+
+
+
 	if (count == 0)
 		front = 0;
 	back = (back + 1) % size;
