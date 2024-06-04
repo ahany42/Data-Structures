@@ -11,6 +11,8 @@ public:
 	void push(T);
 	void pop();
 	T top();
+	T Max();
+
 	bool empty();
 	void ExpandStack();
 	void clear();

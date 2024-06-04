@@ -1,5 +1,7 @@
 #include "StackImplementation.h"
 #include <assert.h>
+#include <vector>
+using namespace std;
 template <class T>
 StackImplementation<T>::StackImplementation(void)
 {
@@ -47,6 +49,16 @@ void StackImplementation<T>::clear() {
 	while (!empty()) {
 		pop();
 	}
+}
+template <class T>
+T StackImplementation<T>::Max() {
+	vector<T> v;
+	while (!empty()) {
+		v.push_back(top());
+		pop();
+	}
+	sort(v.begin(), v.end());
+	return v.back();
 }
 template <class T>
 StackImplementation<T>::~StackImplementation(void)

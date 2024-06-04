@@ -257,6 +257,7 @@ int main()
 				cout << "To Remove the top Element from Stack Enter 3" << endl;
 				cout << "To Move Element to the top of Stack Enter 4" << endl;
 				cout << "To Reverse String Enter 5" << endl;
+				cout << "To display Max Enter 6" << endl;
 				cout << "Enter 7 To Return to Main Menu" << endl;
 				cin >> choice2;
 				if (choice2 == 1) {
@@ -320,12 +321,26 @@ int main()
 						tmp.pop();
 					}
 					cout << endl;
+					
 				}
 				else if (choice2 == 5) {
 					string str;
 					cout << "Enter String To Reverse" << endl;
 					cin >> str;
 					ReverseString(str);
+				}
+				else if(choice2==6){
+					cout << "Enter Number of elements in stack" << endl;
+					int n;
+					StackImplementation <int> s;
+					cin >> n;
+					cout << "Enter Numbers" << endl;
+					for (int i = 0; i < n; i++) {
+						int num;
+						cin >> num;
+						s.push(num);
+					}
+					cout << "Max Number is " << s.Max() << ednl;
 				}
 				else {
 					break;
