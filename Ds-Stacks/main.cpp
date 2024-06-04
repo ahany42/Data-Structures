@@ -198,7 +198,7 @@ void EvenFirst(queue<int>& q) {
 	else
 		OddQueue.push(q.top());
 	q.pop();
-	}q.
+	}
 	while (!EvenQueue.empty()) {
 		q.push(EvenQueue.top());
 		EvenQueue.pop();
