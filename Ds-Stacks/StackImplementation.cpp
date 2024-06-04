@@ -5,7 +5,7 @@ StackImplementation<T>::StackImplementation(void)
 {
 	size= 10;
 	count = 0;
-	arr = new char[size];
+	arr = new T[size];
 }
 template <class T>
 int StackImplementation<T>::length() {

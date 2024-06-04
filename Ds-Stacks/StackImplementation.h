@@ -4,7 +4,7 @@ class StackImplementation
 {
 	int size;
 	int count;
-	char* arr;
+	T* arr;
 public:
 	StackImplementation();
 	int length();
